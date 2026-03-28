@@ -10,39 +10,28 @@ import element3 from '../../../../assets/website/imgi_5_Hero-Design-Element-Imag
 const HeroSection = () => {
     return (
         <section className="hero-section">
-            <div className="container hero-container">
-                <div className="hero-content">
-                    <h2 className="hero-title">Pizza & friends</h2>
-                    <h2 className="hero-title sub-title">are all we need!</h2>
-                    <div className="hero-button-wrapper">
-                        <a href="/shop" className="hero-button">
-                            <span className="button-text">SHOP NOW</span>
-                        </a>
-                    </div>
+            <div className="hero-top-section">
+            <div className="hero-content">
+                <div className="hero-title-box">
+                    <h2>Pizza & friends</h2>
                 </div>
-                
-                <div className="hero-images">
-                    <div className="main-image-wrapper">
-                        <img 
-                            src={heroMain} 
-                            alt="Hero Main" 
-                            className="hero-main-image"
-                        />
-                    </div>
-                    
-                    {/* Floating Design Elements */}
-                    <div className="floating-element element-1">
-                        <img src={element1} alt="Design Element 1" />
-                    </div>
-                    <div className="floating-element element-2">
-                        <img src={element2} alt="Design Element 2" />
-                    </div>
-                    <div className="floating-element element-3">
-                        <img src={element3} alt="Design Element 3" />
-                    </div>
+
+                <div className="sub">
+                    <h2>are all we need!</h2>
+                </div>
+
+                <div className="hero-btn-box">
+                    <a href="/shop">Shop Now</a>
                 </div>
             </div>
-        </section> 
+            </div>
+            
+
+            <div className="hero-image-box">
+                <img src={heroMain} alt="Cheeznest Pizza" />
+            </div>
+
+        </section>
     );
 };
 

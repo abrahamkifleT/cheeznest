@@ -1,159 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@600&display=swap");
+/* 1. Layout & Container */
 .hero-section {
-    position: relative;
-    padding: 100px 0;
-    background-color: #fff;
-    overflow: hidden;
-    min-height: 500px;
-    display: flex;
-    align-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 0; /* Adjust based on your design */
+  overflow: hidden;
 }
 
 .hero-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1140px; /* Standard Elementor boxed width */
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* 2. Text Content Styling */
+.hero-top-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: normal;
+  align-items: normal;
+  position: relative;
+  width: 100%;
+  max-width: 1366px; /* Based on computed width */
+  height: 395px; /* Based on computed height */
+  padding: 0 20px;
+  margin: 0;
+  z-index: 1;
+  background-color: transparent;
+  overflow: visible;
 }
 
 .hero-content {
-    flex: 1;
-    z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: normal;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 100px; /* Offset for fixed navbar */
+  position: static;
+  color: #333;
+  font-size: 1rem;
+  background-color: transparent;
 }
 
-.hero-title {
-    font-size: 90px;
-    font-weight: 900;
-    line-height: 0.9;
-    color: #1a1a1a;
-    margin: 0;
-    text-transform: capitalize;
-    font-family: 'Outfit', sans-serif;
-    letter-spacing: -0.04em;
+.hero-title-box h2 {
+  color: #ff2524;
+  font-family: "Poppins", Sans-serif;
+  font-size: 156px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -7.8px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  text-transform: none;
+  font-style: normal;
 }
 
-.hero-title.sub-title {
-    color: #ffa500; /* Pizza Orange */
-    margin-top: 10px;
+.sub {
+  padding-bottom: 25px;
 }
 
-.hero-button-wrapper {
-    margin-top: 40px;
+.sub h2 {
+  display: block;
+  position: static;
+  font-family: "Poppins", sans-serif;
+  font-size: 88px;
+  font-weight: 600;
+  line-height: 88px;
+  letter-spacing: -4.4px;
+  color: rgb(27, 11, 13);
+  text-align: start;
+  text-transform: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.hero-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 45px;
-    background-color: #1a1a1a;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 16px;
-    letter-spacing: 0.05em;
-    border-radius: 12px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+.hero-heading {
+  margin: 0;
+  padding: 0;
+  font-family: inherit; /* Inherits from your global font */
+  font-size: 64px; /* Standard hero size, adjust as needed */
+  line-height: 1.1;
+  color: #333;
 }
 
-.hero-button:hover {
-    background-color: #ffa500;
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(255, 165, 0, 0.3);
+.hero-subtitle-box {
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
-.hero-images {
-    flex: 1.2;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* 3. Button Styling (Extracted from Elementor Button CSS) */
+.hero-btn-box a {
+  display: inline-block;
+  padding: 21px 38.5px 19px 38px;
+  background-color: #ff2524;
+  color: #ffffff;
+  border-radius: 100px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: normal;
 }
 
-.main-image-wrapper {
-    position: relative;
-    z-index: 5;
-    animation: float-main 6s ease-in-out infinite;
+.hero-btn-box a:hover,
+.hero-btn-box a:focus {
+  color: #ffffff;
+  background-color: #e62120;
+  outline: none;
 }
 
-.hero-main-image {
-    max-width: 100%;
-    height: auto;
+/* 4. Image Styling */
+.hero-image-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transition:
+    background 0.3s,
+    border 0.3s,
+    border-radius 0.3s,
+    box-shadow 0.3s,
+    transform 0.1s;
+  will-change: auto;
+  transform: matrix(1, 0, 0, 1, 0, 0);
 }
 
-.floating-element {
-    position: absolute;
-    z-index: 1;
+.hero-image-box img {
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  display: inline-block;
+  vertical-align: middle;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+  box-sizing: border-box;
 }
 
-.element-1 {
-    top: -20%;
-    left: 10%;
-    animation: float-1 8s ease-in-out infinite;
-}
+/* 5. Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .hero-content {
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
-.element-2 {
-    bottom: -10%;
-    right: 0%;
-    animation: float-2 10s ease-in-out infinite;
-}
+  .hero-title-box h2 {
+    font-size: 100px;
+    letter-spacing: -4px;
+  }
 
-.element-3 {
-    top: 50%;
-    left: -10%;
-    animation: float-1 7s ease-in-out infinite reverse;
-}
+  .sub {
+    padding-bottom: 20px;
+  }
 
-.floating-element img {
-    max-width: 150px;
-    height: auto;
-}
-
-/* Animations */
-@keyframes float-main {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-
-@keyframes float-1 {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(10px, -15px) rotate(2deg); }
-    50% { transform: translate(-5px, -25px) rotate(-2deg); }
-    75% { transform: translate(-15px, -10px) rotate(1deg); }
-}
-
-@keyframes float-2 {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(20px, 15px); }
-}
-
-/* Responsive */
-@media (max-width: 991px) {
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .hero-title {
-        font-size: 60px;
-    }
-    
-    .hero-images {
-        margin-top: 60px;
-        width: 100%;
-    }
+  .sub h2 {
+    font-size: 64px;
+    line-height: 64px;
+    letter-spacing: -2px;
+  }
 }
 
 @media (max-width: 767px) {
-    .hero-title {
-        font-size: 48px;
-    }
-    
-    .floating-element img {
-        max-width: 100px;
-    }
+  .hero-content {
+    padding-top: 60px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-title-box h2 {
+    font-size: 52px;
+    letter-spacing: -1.5px;
+  }
+
+  .sub {
+    padding-bottom: 15px;
+  }
+
+  .sub h2 {
+    font-size: 38px;
+    line-height: 46px;
+    letter-spacing: -1px;
+    text-align: center;
+  }
+
+  .hero-heading {
+    font-size: 40px;
+  }
+
+  .hero-image-box {
+    margin-top: 40px;
+    justify-content: center;
+  }
 }
