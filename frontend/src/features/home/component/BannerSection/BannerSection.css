@@ -1,0 +1,27 @@
+.banner-container {
+  display: flex;
+  width: 1366px;
+  height: 385px;
+  padding: 0px 20px 0px 20px;
+  margin: 0px 0px 0px 0px;
+  box-sizing: border-box;
+}
+
+.banner-left {
+  height: 365px;
+  width: 604px;
+  padding: 0px;
+  margin: 0px 16px 0px 0px;
+  background-color: rgb(123, 179, 16);
+  border-radius: 32px;
+}
+
+.banner-right {
+  display: flex;
+  height: 365px;
+  width: 604px;
+  padding: 0px;
+  margin: 0px 0px 0px 16px;
+  background-color: rgb(255, 0, 0);
+  border-radius: 32px;
+}
