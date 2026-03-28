@@ -1,13 +1,17 @@
 .banner-container {
   display: flex;
-  width: 1366px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1366px;
   height: 385px;
   padding: 0px 20px 0px 20px;
-  margin: 0px 0px 0px 0px;
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
 .banner-left {
+  display: flex;
   height: 365px;
   width: 604px;
   padding: 0px;
@@ -24,4 +28,24 @@
   margin: 0px 0px 0px 16px;
   background-color: rgb(255, 0, 0);
   border-radius: 32px;
+}
+
+.banner-left img,
+.banner-right img {
+  width: 480px;
+  height: 350px;
+}
+
+.banner-left-title-1 {
+  display: block;
+  font-family: "Playball", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 30px;
+  color: rgb(255, 255, 255);
+  text-align: start;
+  margin: 0px;
+  padding: 0px;
+  position: static;
+  z-index: auto;
 }
