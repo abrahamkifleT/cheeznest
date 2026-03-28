@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
+
 .banner-container {
   display: flex;
   justify-content: center;
@@ -18,6 +20,8 @@
   margin: 0px 16px 0px 0px;
   background-color: rgb(123, 179, 16);
   border-radius: 32px;
+  position: relative;
+  overflow: hidden;
 }
 
 .banner-right {
@@ -28,15 +32,22 @@
   margin: 0px 0px 0px 16px;
   background-color: rgb(255, 0, 0);
   border-radius: 32px;
+  position: relative;
+  overflow: hidden;
 }
 
 .banner-left img,
 .banner-right img {
   width: 480px;
   height: 350px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  z-index: 0;
 }
 
-.banner-left-title-1 {
+.banner-left-title-1,
+.banner-right-title-1 {
   display: block;
   font-family: "Playball", sans-serif;
   font-size: 32px;
@@ -44,13 +55,14 @@
   line-height: 30px;
   color: rgb(255, 255, 255);
   text-align: start;
-  margin: 0px;
+  margin: 0px 0px 8px 0px;
   padding: 0px;
   position: static;
   z-index: auto;
 }
 
-.banner-left-title-2 {
+.banner-left-title-2,
+.banner-right-title-2 {
   display: block;
   font-family: "Poppins", sans-serif;
   font-size: 40px;
@@ -61,4 +73,54 @@
   text-align: start;
   position: static;
   z-index: auto;
+  max-width: 250px;
+  margin: 0px 0px 24px 0px;
+}
+
+.banner-left-button,
+.banner-right-button {
+  display: inline-block;
+  background-color: rgba(255, 37, 36, 0);
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  padding: 9px 23.5px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 48px;
+  text-align: center;
+  transition-duration: 0.3s;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+.banner-left-button span,
+.banner-right-button span {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.banner-left-content,
+.banner-right-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: normal;
+  align-items: flex-start;
+  width: 310.219px;
+  height: 365px;
+  padding: 48px 0px 0px 32px;
+  margin: 0px;
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
 }

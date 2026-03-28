@@ -16,9 +16,9 @@ const BannerSection = () => {
 
       <div className='banner-right'>
         <div className='banner-right-content'>
-          <h2>Premium Quality</h2>
-          <h2>Meat Lover's Pizzas</h2>
-          <a href="">Order Now</a>
+          <h2 className='banner-right-title-1'>Premium Quality</h2>
+          <h2 className='banner-right-title-2'>Meat Lover's Pizzas</h2>
+          <a href="" className='banner-right-button'><span>Order Now</span></a>
         </div>
 
         <img src={BannerImg} alt="Banner Right" />
