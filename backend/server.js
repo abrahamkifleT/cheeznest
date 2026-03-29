@@ -1,8 +1,16 @@
 import express from "express";
+import dotenv from "dotenv";
 import productRoutes from "./modules/product/product.routes.js";
+import categoryRoutes from "./modules/category/category.routes.js";
+import { connectDB } from "./config/db.js";
+
+dotenv.config();
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+
+// connect to DB
+connectDB();
 
 // middleware
 
@@ -11,6 +19,7 @@ app.use(express.json())
 
 // routes
 app.use("/api/product", productRoutes)
+app.use("/api/category", categoryRoutes)
 
 // server start
 app.listen(PORT, () => {
