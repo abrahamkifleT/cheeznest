@@ -9,7 +9,7 @@ app.use(express.json())
 
 
 // routes
-app.use("/api/v1/product", productRoutes)
+app.use("/api/product", productRoutes)
 
 // server start
 app.listen(PORT, () => {
