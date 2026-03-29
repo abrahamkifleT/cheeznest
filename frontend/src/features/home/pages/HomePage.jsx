@@ -3,6 +3,7 @@ import Navbar from '../component/Navbar/Navbar'
 import HeroSection from '../component/HeroSection/HeroSection'
 import FeatureSection from '../component/FeatureSection/FeatureSection'
 import BannerSection from '../component/BannerSection/BannerSection'
+import ProductCatalog from '../component/ProductCatalog/ProductCatalog'
 
 const HomePage = () => {
     return (
@@ -11,6 +12,7 @@ const HomePage = () => {
             <HeroSection />
             <FeatureSection />
             <BannerSection />
+            <ProductCatalog />
         </div>
     )
 }
