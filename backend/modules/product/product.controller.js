@@ -1,8 +1,8 @@
 // modules/product/product.controller.js
 import {
   createProductService,
-  getProductsService
-} from "./product.service.js";
+  getAllProductsService
+} from "./product.services.js";
 
 export const createProduct = async (req, res, next) => {
   try {
@@ -22,7 +22,7 @@ export const createProduct = async (req, res, next) => {
 
 export const getProducts = async (req, res, next) => {
   try {
-    const products = await getProductsService(req.query);
+    const products = await getAllProductsService(req.query);
 
     res.json({
       success: true,
