@@ -1,4 +1,5 @@
 import express from "express";
+import productRoutes from "./modules/product/product.routes.js";
 
 const app = express();
 const PORT = 5000;
