@@ -4,7 +4,6 @@ import HeroSection from '../component/HeroSection/HeroSection'
 import FeatureSection from '../component/FeatureSection/FeatureSection'
 import BannerSection from '../component/BannerSection/BannerSection'
 import ProductCatalog from '../component/ProductCatalog/ProductCatalog'
-import MenuSection from '../component/MenuSection/MenuSection'
 
 const HomePage = () => {
     return (
@@ -14,7 +13,6 @@ const HomePage = () => {
             <FeatureSection />
             <BannerSection />
             <ProductCatalog />
-            <MenuSection />
         </div>
     )
 }

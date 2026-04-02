@@ -1,0 +1,84 @@
+.product-catalog-container {
+    width: 100%;
+    height: 100%;
+    padding: 132px 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    box-sizing: border-box;
+}
+
+.product-catalog-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.product-catalog-header-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: #1B0B0D;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.product-catalog-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product-catalog-buttons button {
+    padding: 14px 28px;
+    border-radius: 50px;
+    border: 1px solid #e0e0e0;
+    background: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1B0B0D;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.product-catalog-buttons button:hover {
+    background: #1B0B0D;
+    color: white;
+    border-color: #1B0B0D;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.product-catalog-buttons button.active {
+    background: #1B0B0D;
+    color: white;
+    border-color: #1B0B0D;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .product-catalog-container {
+        padding: 60px 0;
+        gap: 40px;
+    }
+    
+    .product-catalog-header-title {
+        font-size: 32px;
+    }
+    
+    .product-catalog-buttons {
+        gap: 10px;
+    }
+    
+    .product-catalog-buttons button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
