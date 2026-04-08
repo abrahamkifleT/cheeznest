@@ -31,18 +31,18 @@ const bulkSeedProducts = async () => {
     
     // We'll map local filenames to product details
     const productData = [
-      { name: 'Classic Margherita', category: 'Classic Pizza', img: 'imgi_24_image-2-1.webp', price: 12.99, desc: 'Fresh tomato sauce, mozzarella, and basil leaf.' },
-      { name: 'Meat Lover Pizza', category: 'Meat Lovers Pizza', img: 'imgi_12_image-1-2.webp', price: 15.99, desc: 'Heaped with pepperoni, Italian sausage, and bacon.' },
-      { name: 'Garden Veggie', category: 'Vegetarian Pizza', img: 'imgi_11_image-12-1-1.webp', price: 13.50, desc: 'Bell peppers, red onions, mushrooms, and olives.' },
-      { name: 'Crispy Fries', category: 'Fries', img: 'imgi_26_image-4-1.webp', price: 4.99, desc: 'Golden brown, lightly salted crispy French fries.' },
-      { name: 'Spicy Chicken Wings', category: 'Chicken Wings', img: 'imgi_14_63890fc77a2bf7710450646b_image-9-menu-pizzaplanet-template-p-800-1.webp', price: 9.99, desc: 'Tender wings tossed in hot buffalo sauce.' },
-      { name: 'Garlic Breadsticks', category: 'Garlic Bread', img: 'imgi_27_image-5-1.webp', price: 5.99, desc: 'Freshly baked with roasted garlic and herbs.' },
-      { name: 'Fresh Ceasar Salad', category: 'Salad', img: 'imgi_28_image-6-2.webp', price: 7.99, desc: 'Crisp romaine with parmesan and crunchy croutons.' },
-      { name: 'Double Chocolate Cake', category: 'Cake', img: 'imgi_18_63890ff24c9e7491bf105aec_image-12-menu-pizzaplanet-template-p-800-2.webp', price: 6.50, desc: 'Rich, moist chocolate cake with dark chocolate ganache.' },
-      { name: 'Vanilla Bean Ice Cream', category: 'Ice Cream', img: 'imgi_49_6389103ab64a2353ca775a88_image-16-menu-pizzaplanet-template-p-800-1-150x150.webp', price: 3.99, desc: 'Real vanilla bean churned for a smooth texture.' },
-      { name: 'Cold Brew Coffee', category: 'Coffee', img: 'imgi_8_image-1-1.webp', price: 4.50, desc: 'Steeped for 12 hours, smooth and caffeine-rich.' },
-      { name: 'Orange Juice', category: 'Juice', img: 'imgi_9_Group-1000012600-1.webp', price: 3.50, desc: 'Freshly squeezed oranges with a pulp-free finish.' },
-      { name: 'Four Cheese Special', category: 'Specialty Pizza', img: 'imgi_25_image-3-1.webp', price: 14.99, desc: 'Mozzarella, parmesan, ricotta, and cheddar blend.' }
+      { name: 'Classic Margherita', categories: ['Classic Pizza'], img: 'imgi_24_image-2-1.webp', price: 12.99, desc: 'Fresh tomato sauce, mozzarella, and basil leaf.' },
+      { name: 'Meat Lover Pizza', categories: ['Meat Lovers Pizza', 'Popular'], img: 'imgi_12_image-1-2.webp', price: 15.99, desc: 'Heaped with pepperoni, Italian sausage, and bacon.' },
+      { name: 'Garden Veggie', categories: ['Vegetarian Pizza', 'Healthy'], img: 'imgi_11_image-12-1-1.webp', price: 13.50, desc: 'Bell peppers, red onions, mushrooms, and olives.' },
+      { name: 'Crispy Fries', categories: ['Fries', 'Sides'], img: 'imgi_26_image-4-1.webp', price: 4.99, desc: 'Golden brown, lightly salted crispy French fries.' },
+      { name: 'Spicy Chicken Wings', categories: ['Chicken Wings', 'Starters'], img: 'imgi_14_63890fc77a2bf7710450646b_image-9-menu-pizzaplanet-template-p-800-1.webp', price: 9.99, desc: 'Tender wings tossed in hot buffalo sauce.' },
+      { name: 'Garlic Breadsticks', categories: ['Garlic Bread', 'Sides'], img: 'imgi_27_image-5-1.webp', price: 5.99, desc: 'Freshly baked with roasted garlic and herbs.' },
+      { name: 'Fresh Ceasar Salad', categories: ['Salad', 'Healthy'], img: 'imgi_28_image-6-2.webp', price: 7.99, desc: 'Crisp romaine with parmesan and crunchy croutons.' },
+      { name: 'Double Chocolate Cake', categories: ['Cake', 'Dessert'], img: 'imgi_18_63890ff24c9e7491bf105aec_image-12-menu-pizzaplanet-template-p-800-2.webp', price: 6.50, desc: 'Rich, moist chocolate cake with dark chocolate ganache.' },
+      { name: 'Vanilla Bean Ice Cream', categories: ['Ice Cream', 'Dessert'], img: 'imgi_49_6389103ab64a2353ca775a88_image-16-menu-pizzaplanet-template-p-800-1-150x150.webp', price: 3.99, desc: 'Real vanilla bean churned for a smooth texture.' },
+      { name: 'Cold Brew Coffee', categories: ['Coffee', 'Drinks'], img: 'imgi_8_image-1-1.webp', price: 4.50, desc: 'Steeped for 12 hours, smooth and caffeine-rich.' },
+      { name: 'Orange Juice', categories: ['Juice', 'Drinks'], img: 'imgi_9_Group-1000012600-1.webp', price: 3.50, desc: 'Freshly squeezed oranges with a pulp-free finish.' },
+      { name: 'Four Cheese Special', categories: ['Specialty Pizza', 'Popular'], img: 'imgi_25_image-3-1.webp', price: 14.99, desc: 'Mozzarella, parmesan, ricotta, and cheddar blend.' }
     ];
 
     console.log(`Starting bulk upload of ${productData.length} products to Cloudinary...`);
@@ -72,7 +72,7 @@ const bulkSeedProducts = async () => {
         slug: item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
         description: item.desc,
         price: item.price,
-        category: findCategory(item.category),
+        categories: item.categories.map(catName => findCategory(catName)),
         image: cloudinaryUrl,
         isFeatured: Math.random() > 0.5,
         stock: Math.floor(Math.random() * 50) + 10,
