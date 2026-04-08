@@ -1,194 +1,122 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import Product from "../modules/product/product.modle.js";
+import Category from "../modules/category/category.model.js";
 
 dotenv.config();
 
-const images = [
-  "imgi_24_image-2-1.webp",
-  "imgi_25_image-3-1.webp",
-  "imgi_26_image-4-1.webp",
-  "imgi_27_image-5-1.webp",
-  "imgi_28_image-6-2.webp",
-  "imgi_9_Group-1000012600-1.webp",
-  "imgi_8_image-1-1.webp",
-  "imgi_12_image-1-2.webp",
-  "imgi_11_image-12-1-1.webp",
-  "imgi_14_63890fc77a2bf7710450646b_image-9-menu-pizzaplanet-template-p-800-1.webp",
-  "imgi_18_63890ff24c9e7491bf105aec_image-12-menu-pizzaplanet-template-p-800-2.webp",
-  "imgi_49_6389103ab64a2353ca775a88_image-16-menu-pizzaplanet-template-p-800-1-150x150.webp"
-];
-
-const mockCategory = new mongoose.Types.ObjectId();
-
-const products = [
-  { 
-    name: "Classic Margherita", 
-    slug: "classic-margherita",
-    description: "Tomato sauce, mozzarella, and fresh basil.", 
-    price: 12.99, 
-    discountPrice: 10.99,
-    categories: [mockCategory],
-    image: images[0], 
-    images: [],
-    isFeatured: true,
-    stock: 100,
-    ratingsAverage: 4.8,
-    ratingsQuantity: 34
+const productsRaw = [
+  {
+    "name": "Guideline Book",
+    "slug": "guideline-book",
+    "description": "A comprehensive guide to the CheezNest flavors and recipes.",
+    "price": 15,
+    "discountPrice": null,
+    "categoryNames": ["PDF Book"],
+    "image": "https://kitpapa.net/cheeznest/wp-content/uploads/2024/10/PIZZA_Guideline-1.webp",
+    "images": ["https://kitpapa.net/cheeznest/wp-content/uploads/2024/10/PIZZA_Guideline-1.webp"],
+    "isFeatured": false,
+    "stock": 100,
+    "ratingsAverage": 5,
+    "ratingsQuantity": 0
   },
-  { 
-    name: "Pepperoni Feast", 
-    slug: "pepperoni-feast",
-    description: "Loaded with pepperoni and extra cheese.", 
-    price: 14.99, 
-    discountPrice: 12.99,
-    categories: [mockCategory],
-    image: images[1], 
-    images: [],
-    isFeatured: true,
-    stock: 80,
-    ratingsAverage: 4.9,
-    ratingsQuantity: 156
+  {
+    "name": "Prosciutto Arugula",
+    "slug": "prosciutto-arugula",
+    "description": "Italian Prosciutto topped with fresh arugula and balsamic glaze.",
+    "price": 50,
+    "discountPrice": null,
+    "categoryNames": ["Specialty Pizza", "Pizza"],
+    "image": "https://kitpapa.net/cheeznest/wp-content/uploads/2024/10/image-1-1.webp",
+    "images": ["https://kitpapa.net/cheeznest/wp-content/uploads/2024/10/image-1-1.webp"],
+    "isFeatured": false,
+    "stock": 100,
+    "ratingsAverage": 5,
+    "ratingsQuantity": 0
   },
-  { 
-    name: "BBQ Chicken", 
-    slug: "bbq-chicken",
-    description: "Grilled chicken, BBQ sauce, onions, and cilantro.", 
-    price: 16.99, 
-    discountPrice: 15.49,
-    categories: [mockCategory],
-    image: images[2], 
-    images: [],
-    isFeatured: false,
-    stock: 60,
-    ratingsAverage: 4.5,
-    ratingsQuantity: 42
+  {
+    "name": "Truffle Mushroom",
+    "slug": "truffle-mushroom",
+    "description": "Earthy mushrooms drizzled with exquisite truffle oil.",
+    "price": 50,
+    "discountPrice": null,
+    "categoryNames": ["Specialty Pizza", "Vegetarian Pizza"],
+    "image": "https://kitpapa.net/cheeznest/wp-content/uploads/2024/10/banner-bg-03-new-1-2.webp",
+    "images": ["https://kitpapa.net/cheeznest/wp-content/uploads/2024/10/banner-bg-03-new-1-2.webp"],
+    "isFeatured": false,
+    "stock": 100,
+    "ratingsAverage": 5,
+    "ratingsQuantity": 0
   },
-  { 
-    name: "Veggie Supreme", 
-    slug: "veggie-supreme",
-    description: "Bell peppers, mushrooms, onions, and black olives.", 
-    price: 13.99, 
-    discountPrice: 11.99,
-    categories: [mockCategory],
-    image: images[3], 
-    images: [],
-    isFeatured: false,
-    stock: 120,
-    ratingsAverage: 4.2,
-    ratingsQuantity: 28
+  {
+    "name": "Capricorno",
+    "slug": "capricorno",
+    "description": "A classic blend of ham, mushrooms, artichokes, and olives.",
+    "price": 50,
+    "discountPrice": null,
+    "categoryNames": ["Specialty Pizza", "Pizza"],
+    "image": "https://kitpapa.net/cheeznest/wp-content/uploads/2024/10/image-12-1-1.webp",
+    "images": ["https://kitpapa.net/cheeznest/wp-content/uploads/2024/10/image-12-1-1.webp"],
+    "isFeatured": false,
+    "stock": 100,
+    "ratingsAverage": 5,
+    "ratingsQuantity": 0
   },
-  { 
-    name: "Four Cheese", 
-    slug: "four-cheese",
-    description: "A rich blend of mozzarella, cheddar, parmesan, and provolone.", 
-    price: 15.99, 
-    discountPrice: 14.99,
-    categories: [mockCategory],
-    image: images[4], 
-    images: [],
-    isFeatured: true,
-    stock: 90,
-    ratingsAverage: 4.7,
-    ratingsQuantity: 88
+  {
+    "name": "Vesuvio",
+    "slug": "vesuvio",
+    "description": "Spicy pepperoni and chili peppers for a fiery kick.",
+    "price": 50,
+    "discountPrice": null,
+    "categoryNames": ["Spicy Pizza", "Pizza"],
+    "image": "https://kitpapa.net/cheeznest/wp-content/uploads/2024/10/image-1-1.webp",
+    "images": ["https://kitpapa.net/cheeznest/wp-content/uploads/2024/10/image-1-1.webp"],
+    "isFeatured": false,
+    "stock": 100,
+    "ratingsAverage": 5,
+    "ratingsQuantity": 0
   },
-  { 
-    name: "Meat Lover's", 
-    slug: "meat-lovers",
-    description: "Pepperoni, sausage, bacon, and ham.", 
-    price: 17.99, 
-    discountPrice: 16.49,
-    categories: [mockCategory],
-    image: images[5], 
-    images: [],
-    isFeatured: false,
-    stock: 75,
-    ratingsAverage: 4.6,
-    ratingsQuantity: 112
+  {
+    "name": "European",
+    "slug": "european",
+    "description": "A delightful mix of cheeses and cured meats from across Europe.",
+    "price": 45,
+    "discountPrice": null,
+    "categoryNames": ["Main Dishes", "Specialty Pizza"],
+    "image": "https://kitpapa.net/cheeznest/wp-content/uploads/2024/10/image-1-2.webp",
+    "images": ["https://kitpapa.net/cheeznest/wp-content/uploads/2024/10/image-1-2.webp"],
+    "isFeatured": false,
+    "stock": 100,
+    "ratingsAverage": 5,
+    "ratingsQuantity": 0
   },
-  { 
-    name: "Hawaiian Bliss", 
-    slug: "hawaiian-bliss",
-    description: "Ham and sweet pineapple chunks.", 
-    price: 14.49, 
-    discountPrice: 13.49,
-    categories: [mockCategory],
-    image: images[6], 
-    images: [],
-    isFeatured: false,
-    stock: 150,
-    ratingsAverage: 4.1,
-    ratingsQuantity: 65
+  {
+    "name": "Campania",
+    "slug": "campania",
+    "description": "Authentic flavors from the heart of Southern Italy.",
+    "price": 50,
+    "discountPrice": null,
+    "categoryNames": ["Specialty Pizza", "Pizza"],
+    "image": "https://kitpapa.net/cheeznest/wp-content/uploads/2024/10/6389103ab64a2353ca775a88_image-16-menu-pizzaplanet-template-p-800-1.webp",
+    "images": ["https://kitpapa.net/cheeznest/wp-content/uploads/2024/10/6389103ab64a2353ca775a88_image-16-menu-pizzaplanet-template-p-800-1.webp"],
+    "isFeatured": false,
+    "stock": 100,
+    "ratingsAverage": 5,
+    "ratingsQuantity": 0
   },
-  { 
-    name: "Mushroom Truffle", 
-    slug: "mushroom-truffle",
-    description: "Wild mushrooms with a drizzle of truffle oil.", 
-    price: 16.49, 
-    discountPrice: 15.99,
-    categories: [mockCategory],
-    image: images[7], 
-    images: [],
-    isFeatured: true,
-    stock: 40,
-    ratingsAverage: 4.9,
-    ratingsQuantity: 310
-  },
-  { 
-    name: "Buffalo Chicken", 
-    slug: "buffalo-chicken",
-    description: "Spicy buffalo chicken with a ranch drizzle.", 
-    price: 15.49, 
-    discountPrice: 14.49,
-    categories: [mockCategory],
-    image: images[8], 
-    images: [],
-    isFeatured: false,
-    stock: 85,
-    ratingsAverage: 4.4,
-    ratingsQuantity: 76
-  },
-  { 
-    name: "Garlic Parmesan Bites", 
-    slug: "garlic-parmesan-bites",
-    description: "Oven-baked bites tossed in garlic and parmesan.", 
-    price: 8.99, 
-    discountPrice: 7.99,
-    categories: [mockCategory],
-    image: images[9], 
-    images: [],
-    isFeatured: false,
-    stock: 200,
-    ratingsAverage: 4.0,
-    ratingsQuantity: 15
-  },
-  { 
-    name: "Cheesy Breadsticks", 
-    slug: "cheesy-breadsticks",
-    description: "Warm breadsticks stuffed with melted cheese.", 
-    price: 7.99, 
-    discountPrice: 6.99,
-    categories: [mockCategory],
-    image: images[10], 
-    images: [],
-    isFeatured: false,
-    stock: 180,
-    ratingsAverage: 4.3,
-    ratingsQuantity: 22
-  },
-  { 
-    name: "Caesar Salad", 
-    slug: "caesar-salad",
-    description: "Crisp romaine, parmesan, croutons, and Caesar dressing.", 
-    price: 9.99, 
-    discountPrice: 8.49,
-    categories: [mockCategory],
-    image: images[11], 
-    images: [],
-    isFeatured: true,
-    stock: 120,
-    ratingsAverage: 4.5,
-    ratingsQuantity: 58
+  {
+    "name": "Mediterrano",
+    "slug": "mediterrano",
+    "description": "A sun-kissed blend of olives, feta, and Mediterranean herbs.",
+    "price": 55,
+    "discountPrice": null,
+    "categoryNames": ["Specialty Pizza", "Vegetarian Pizza"],
+    "image": "https://kitpapa.net/cheeznest/wp-content/uploads/2024/10/63890fc77a2bf7710450646b_image-9-menu-pizzaplanet-template-p-800-1.webp",
+    "images": ["https://kitpapa.net/cheeznest/wp-content/uploads/2024/10/63890fc77a2bf7710450646b_image-9-menu-pizzaplanet-template-p-800-1.webp"],
+    "isFeatured": false,
+    "stock": 100,
+    "ratingsAverage": 5,
+    "ratingsQuantity": 0
   }
 ];
 
@@ -197,11 +125,31 @@ const seedDB = async () => {
     await mongoose.connect(process.env.MONGODB_URI);
     console.log("MongoDB connected for seeding...");
 
-    await Product.deleteMany(); // clear existing products
+    // 1. Fetch categories to map names to IDs
+    const categories = await Category.find();
+    
+    const products = productsRaw.map(p => {
+      const categoryIds = p.categoryNames.map(name => {
+        const cat = categories.find(c => c.name === name);
+        return cat ? cat._id : null;
+      }).filter(id => id !== null);
+
+      // Default to first category if none found (to satisfy 'required' constraint)
+      if (categoryIds.length === 0 && categories.length > 0) {
+        categoryIds.push(categories[0]._id);
+      }
+
+      const { categoryNames, ...rest } = p;
+      return { ...rest, categories: categoryIds };
+    });
+
+    // 2. Clear existing products
+    await Product.deleteMany();
     console.log("Existing products cleared.");
 
+    // 3. Insert new products
     await Product.insertMany(products);
-    console.log("12 dummy products seeded successfully!");
+    console.log(`${products.length} specific products seeded successfully!`);
 
     process.exit(0);
   } catch (error) {

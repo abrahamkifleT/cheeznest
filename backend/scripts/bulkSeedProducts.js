@@ -29,20 +29,57 @@ const bulkSeedProducts = async () => {
     // 3. Define the products with their local image paths
     const assetPath = 'E:/development/cheeznest/frontend/src/assets/website';
     
-    // We'll map local filenames to product details
+    // Freshly curated product list with multiple categories
     const productData = [
-      { name: 'Classic Margherita', categories: ['Classic Pizza'], img: 'imgi_24_image-2-1.webp', price: 12.99, desc: 'Fresh tomato sauce, mozzarella, and basil leaf.' },
-      { name: 'Meat Lover Pizza', categories: ['Meat Lovers Pizza', 'Popular'], img: 'imgi_12_image-1-2.webp', price: 15.99, desc: 'Heaped with pepperoni, Italian sausage, and bacon.' },
-      { name: 'Garden Veggie', categories: ['Vegetarian Pizza', 'Healthy'], img: 'imgi_11_image-12-1-1.webp', price: 13.50, desc: 'Bell peppers, red onions, mushrooms, and olives.' },
-      { name: 'Crispy Fries', categories: ['Fries', 'Sides'], img: 'imgi_26_image-4-1.webp', price: 4.99, desc: 'Golden brown, lightly salted crispy French fries.' },
-      { name: 'Spicy Chicken Wings', categories: ['Chicken Wings', 'Starters'], img: 'imgi_14_63890fc77a2bf7710450646b_image-9-menu-pizzaplanet-template-p-800-1.webp', price: 9.99, desc: 'Tender wings tossed in hot buffalo sauce.' },
-      { name: 'Garlic Breadsticks', categories: ['Garlic Bread', 'Sides'], img: 'imgi_27_image-5-1.webp', price: 5.99, desc: 'Freshly baked with roasted garlic and herbs.' },
-      { name: 'Fresh Ceasar Salad', categories: ['Salad', 'Healthy'], img: 'imgi_28_image-6-2.webp', price: 7.99, desc: 'Crisp romaine with parmesan and crunchy croutons.' },
-      { name: 'Double Chocolate Cake', categories: ['Cake', 'Dessert'], img: 'imgi_18_63890ff24c9e7491bf105aec_image-12-menu-pizzaplanet-template-p-800-2.webp', price: 6.50, desc: 'Rich, moist chocolate cake with dark chocolate ganache.' },
-      { name: 'Vanilla Bean Ice Cream', categories: ['Ice Cream', 'Dessert'], img: 'imgi_49_6389103ab64a2353ca775a88_image-16-menu-pizzaplanet-template-p-800-1-150x150.webp', price: 3.99, desc: 'Real vanilla bean churned for a smooth texture.' },
-      { name: 'Cold Brew Coffee', categories: ['Coffee', 'Drinks'], img: 'imgi_8_image-1-1.webp', price: 4.50, desc: 'Steeped for 12 hours, smooth and caffeine-rich.' },
-      { name: 'Orange Juice', categories: ['Juice', 'Drinks'], img: 'imgi_9_Group-1000012600-1.webp', price: 3.50, desc: 'Freshly squeezed oranges with a pulp-free finish.' },
-      { name: 'Four Cheese Special', categories: ['Specialty Pizza', 'Popular'], img: 'imgi_25_image-3-1.webp', price: 14.99, desc: 'Mozzarella, parmesan, ricotta, and cheddar blend.' }
+      { 
+        name: 'Cheesy Volcano Pizza', 
+        categories: ['Specialty Pizza', 'Spicy Pizza', 'Popular'], 
+        img: 'imgi_79_cheese-pizza-with-chilli-and-basil-2024-09-24-10-35-03-utc-1.webp', 
+        price: 18.99, 
+        desc: 'Spicy chili, fresh basil, and a volcano of melted mozzarella.' 
+      },
+      { 
+        name: 'Chef Garden Special', 
+        categories: ['Vegetarian Pizza', 'Healthy', 'Main Dishes'], 
+        img: 'imgi_74_young-woman-in-a-gray-aprong-prepares-a-vegetarian-2023-11-27-05-08-07-utc-1.webp', 
+        price: 16.50, 
+        desc: 'Hand-picked organic veggies prepared by our master chef.' 
+      },
+      { 
+        name: 'Wood-Fired Classic', 
+        categories: ['Classic Pizza', 'Main Dishes'], 
+        img: 'imgi_69_pizza-placed-on-a-wooden-plate-2023-11-27-05-17-07-utc-1.webp', 
+        price: 14.99, 
+        desc: 'Traditional pizza baked in an authentic wood-fired oven.' 
+      },
+      { 
+        name: 'Friends Party Combo', 
+        categories: ['Specialty Pizza', 'Side Dishes', 'Popular'], 
+        img: 'imgi_64_friends-eating-pizza-and-having-drinks-2024-04-08-20-30-36-utc-1.webp', 
+        price: 34.99, 
+        desc: 'The ultimate sharing platter for your next group hangout.' 
+      },
+      { 
+        name: 'Premium Margherita', 
+        categories: ['Classic Pizza', 'Popular'], 
+        img: 'imgi_24_image-2-1.webp', 
+        price: 13.99, 
+        desc: 'Our signature Margherita with premium buffalo mozzarella.' 
+      },
+      { 
+        name: 'Garlic Herb Twists', 
+        categories: ['Garlic Bread', 'Side Dishes'], 
+        img: 'imgi_27_image-5-1.webp', 
+        price: 6.99, 
+        desc: 'Fluffy dough twisted with roasted garlic and fresh herbs.' 
+      },
+      { 
+        name: 'Double Fudge Brownie', 
+        categories: ['Brownies', 'Desserts'], 
+        img: 'imgi_18_63890ff24c9e7491bf105aec_image-12-menu-pizzaplanet-template-p-800-2.webp', 
+        price: 5.50, 
+        desc: 'Triple chocolate fudge brownies served warm.' 
+      }
     ];
 
     console.log(`Starting bulk upload of ${productData.length} products to Cloudinary...`);

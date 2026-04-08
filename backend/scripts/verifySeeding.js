@@ -7,10 +7,11 @@ dotenv.config();
 
 const verify = async () => {
   await mongoose.connect(process.env.MONGODB_URI);
-  const products = await Product.find().populate('category');
+  const products = await Product.find().populate('categories');
   console.log(`Found ${products.length} products in DB.`);
   products.slice(0, 3).forEach(p => {
-    console.log(`- ${p.name} | Category: ${p.category?.name} | Image: ${p.image}`);
+    const categoryNames = p.categories?.map(c => c.name).join(', ') || 'None';
+    console.log(`- ${p.name} | Categories: ${categoryNames} | Image: ${p.image}`);
   });
   mongoose.connection.close();
 };
