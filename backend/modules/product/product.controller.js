@@ -7,6 +7,9 @@ import {
 export const createProduct = async (req, res, next) => {
   try {
     // req comes here ✅
+    if (req.file) {
+      req.body.image = req.file.path;
+    }
     const product = await createProductService(req.body);
 
     // res goes from here ✅
