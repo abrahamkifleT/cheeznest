@@ -59,7 +59,7 @@ const ProductCatalog = () => {
                     filteredProducts.map(product => (
                         <div key={product._id} className="product-card">
                             <div className="product-card-image">
-                                <img src={product.image} alt={product.name} />
+                                <img src={product.image} alt={product.name} className="item-image" />
                                 {product.isFeatured && <span className="featured-badge">Featured</span>}
                             </div>
                             <div className="product-card-info">
