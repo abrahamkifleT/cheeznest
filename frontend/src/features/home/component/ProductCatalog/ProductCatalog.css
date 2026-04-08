@@ -225,6 +225,38 @@
   color: #fff;
 }
 
+/* Footer Section */
+.product-catalog-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    width: 100%;
+}
+
+.product-catalog-footer-button {
+  display: inline-block;
+  background-color: #1B0B0D;
+  color: #FFFFFF;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 21px 40.3px 19px 40.3px;
+  border-radius: 100px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.product-catalog-footer-button:hover {
+    background-color: #FF2524;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 37, 36, 0.3);
+}
+
 /* Loading and empty states */
 .loading, .no-products {
     grid-column: 1 / -1;
