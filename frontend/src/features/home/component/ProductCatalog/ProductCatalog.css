@@ -1,8 +1,10 @@
 /* Container for the whole catalog */
 .product-catalog-container {
-    padding: 20px; /* Adjust based on your page layout */
-    max-width: 1200px;
-    margin: 0 auto;
+    height: 1392.17px;
+    padding: 132px 0;
+    margin: 0 100px;
+    box-sizing: border-box;
+    max-width: none; /* Removing the previous max-width to favor the 100px margins */
 }
 
 /* Header section styling */
