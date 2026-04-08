@@ -74,23 +74,31 @@
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
     border: 1px solid #f0f0f0;
     display: flex;
     flex-direction: column;
+    align-items: center;
     box-sizing: border-box;
 }
 
 .product-card:hover {
     transform: translateY(-10px);
+    background-color: #FF0000;
+}
+
+.product-card:hover .product-name,
+.product-card:hover .product-price {
+    color: #fff !important;
 }
 
 .product-card-image {
     position: relative;
-    width: 203px !important;
-    height: 203px !important;
+    width: 203px;
+    height: 203px;
     background: #f9f9f9;
-    margin: 0 auto 15px auto;
+    /* margin: 0 auto 15px auto; */
+    padding: 0;
     border-radius: 10px;
     overflow: hidden;
     display: flex;
@@ -99,8 +107,10 @@
 }
 
 .item-image {
-    max-width: 100%;
-    max-height: 100%;
+    width: 203px;
+    height: 203px;
+    /* max-width: 100%;
+    max-height: 100%; */
     object-fit: contain;
     display: block;
 }
@@ -119,7 +129,8 @@
 }
 
 .product-card-info {
-    padding: 24px;
+    padding: 0;
+    margin: 0;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -127,10 +138,17 @@
 
 .product-name {
     font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: -0.5px;
     color: #1B0B0D;
-    margin: 0 0 12px 0;
+    text-transform: none;
+    text-decoration: none;
+    font-style: normal;
+    margin: 0 0 10px 0;
+    text-align: center;
+    transition: color 0.3s ease;
 }
 
 .product-description {
@@ -149,8 +167,9 @@
 
 .product-footer {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 15px;
     margin-top: auto;
 }
 
@@ -158,24 +177,52 @@
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     font-weight: 700;
-    color: #1B0B0D;
+    color: #D60100;
+    transition: color 0.3s ease;
 }
 
-.add-to-cart-btn {
-    background: #1B0B0D;
+.add-to-cart-button {
+  /* Layout & Sizing */
+  display: inline-block;
+  box-sizing: border-box;
+  width: auto; /* Uses padding for sizing */
+  min-width: 133.88px;
+  height: 40px;
+  
+  /* Spacing */
+  padding: 9px 22px 7px 22px;
+  margin: 0;
+
+  /* Typography */
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+  color: #1B0B0D; /* rgb(27, 11, 13) */
+
+  /* Visuals */
+  background-color: transparent;
+  border: 1px solid #1B0B0D;
+  border-radius: 50px;
+  cursor: pointer;
+
+  /* Interaction */
+  transition: all 0.3s ease;
+}
+
+/* Ensure button text and border turn white when the card is hovered */
+.product-card:hover .add-to-cart-button {
     color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 50px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s;
+    border-color: #fff;
 }
 
-.add-to-cart-btn:hover {
-    background-color: #333;
+/* Hover effect often found in these designs */
+.add-to-cart-button:hover {
+  opacity: 0.8;
+  background-color: #1B0B0D;
+  color: #fff;
 }
 
 /* Loading and empty states */
