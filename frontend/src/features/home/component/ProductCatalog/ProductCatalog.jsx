@@ -6,7 +6,7 @@ const ProductCatalog = () => {
     const [activeCategory, setActiveCategory] = useState('All');
     const [loading, setLoading] = useState(true);
 
-    const categories = ['All', 'PDF Book', 'Main dishes', 'Side dishes', 'Pizza'];
+    const categories = ['All', 'PDF Book', 'Main Dishes', 'Side Dishes', 'Pizza'];
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -29,7 +29,9 @@ const ProductCatalog = () => {
     const filteredProducts = activeCategory === 'All' 
         ? products 
         : products.filter(product => 
-            product.categories.some(cat => cat.name === activeCategory)
+            product.categories.some(cat => 
+                cat.name.trim().toLowerCase() === activeCategory.trim().toLowerCase()
+            )
         );
 
     return (
