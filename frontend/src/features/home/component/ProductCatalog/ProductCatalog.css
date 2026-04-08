@@ -49,10 +49,11 @@
     transition: all 0.3s ease;
 }
 
-.product-catalog-buttons button:hover {
-    background-color: #1B0B0D;
-    color: #fff;
-    border-color: #1B0B0D;
+.product-catalog-buttons button:hover,
+.product-catalog-buttons button.active {
+    background-color: #fff;
+    color: #1B0B0D;
+    border-color: #fff;
 }
 
 /* Grid for the product list */

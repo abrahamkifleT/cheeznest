@@ -9,7 +9,7 @@ export const createProductService = async (data) => {
 }
 
 export const getAllProductsService = async () => {
-    const products = await product.find()
+    const products = await product.find().populate('categories')
     return products
 }
 
