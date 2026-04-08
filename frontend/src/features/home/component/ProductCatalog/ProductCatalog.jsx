@@ -1,11 +1,12 @@
-import React from 'react'
-import './ProductCatalog.css'
+  import React from 'react';
+import './ProductCatalog.css';
 
 const ProductCatalog = () => {
   return (
     <div className='product-catalog-container'>
       <div className='product-catalog-header'>
-        <p className='product-catalog-header-title'>Try Fresh and Flavorful</p>
+        {/* Exact text from the site: Try Fresh & Flavourful */}
+        <p className='product-catalog-header-title'>Try Fresh <br/> & Flavourful</p>
 
         <div className='product-catalog-buttons'>
           <button>PDF Book</button>
@@ -15,13 +16,11 @@ const ProductCatalog = () => {
         </div>
       </div>
 
-
-
       <div className='product-catalog-list'>
-
+        {/* Product items will go here */}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProductCatalog
+export default ProductCatalog;

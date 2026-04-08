@@ -1,89 +1,71 @@
+/* Container for the whole catalog */
 .product-catalog-container {
-    width: 100%;
-    height: 100%;
-    padding: 132px 0;
+    padding: 20px; /* Adjust based on your page layout */
+    max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-    box-sizing: border-box;
 }
 
+/* Header section styling */
 .product-catalog-header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 32px;
-    text-align: center;
-    padding: 0 20px;
+    margin-bottom: 40px;
+    justify-content: space-between;
 }
 
+/* The specific title style extracted from the page */
 .product-catalog-header-title {
-    font-family: "Poppins", sans-serif;
-    font-size: 48px;
-    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-size: 64px;
+    font-weight: 500;
     color: #1B0B0D;
-    margin: 0;
-    letter-spacing: -0.5px;
+    line-height: 1.2; /* Approximately 77px / 64px */
+    letter-spacing: -3.2px;
+    margin: 0 0 14.4px 0;
+    text-transform: none;
+    text-align: left;
 }
 
+/* Button group styling */
 .product-catalog-buttons {
-    width: 756.391px;
-    height: 106px;
     display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
+    gap: 15px;
+    margin-top: 10px;
+    background-color: #1B0B0D;
+    padding: 10px;
+    border-radius: 50px;
 }
 
 .product-catalog-buttons button {
-    padding: 14px 28px;
+    padding: 10px 25px;
+    border: 1px solid #ddd;
+    background-color: transparent;
     border-radius: 50px;
-    border: 1px solid #e0e0e0;
-    background: white;
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
     font-weight: 500;
-    color: #1B0B0D;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
 }
 
 .product-catalog-buttons button:hover {
-    background: #1B0B0D;
-    color: white;
+    background-color: #1B0B0D;
+    color: #fff;
     border-color: #1B0B0D;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.product-catalog-buttons button.active {
-    background: #1B0B0D;
-    color: white;
-    border-color: #1B0B0D;
+/* Grid for the product list */
+.product-catalog-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .product-catalog-container {
-        padding: 60px 0;
-        gap: 40px;
-    }
-    
     .product-catalog-header-title {
-        font-size: 32px;
-    }
-    
-    .product-catalog-buttons {
-        gap: 10px;
-    }
-    
-    .product-catalog-buttons button {
-        padding: 10px 20px;
-        font-size: 14px;
+        font-size: 48px;
+        letter-spacing: -2px;
     }
 }
